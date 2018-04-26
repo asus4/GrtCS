@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
 namespace GRT
 {
@@ -59,6 +58,8 @@ namespace GRT
 
         public string GetGRTRevison => GRTVersionInfo.REVISION;
 
+
+
         /// <summary>
         /// Scales the input value x (which should be in the range [minSource maxSource]) to a value in the new target range of [minTarget maxTarget].
         /// </summary>
@@ -70,16 +71,11 @@ namespace GRT
         /// <param name="constrain">sets if the scaled value should be constrained to the target range</param>
         /// <returns>returns a new value that has been scaled based on the input parameters</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public double Scale(ref double x, ref double minSource, ref double maxSource, ref double minTarget, ref double maxTarget, bool constrain = false)
+        public static double Scale(double x, ref double minSource, ref double maxSource, ref double minTarget, ref double maxTarget, bool constrain = false)
         {
-            if (constrain)
-            {
-                if (x <= minSource) return minTarget;
-                if (x >= maxSource) return maxTarget;
-            }
-            if (minSource == maxSource) return minTarget;
-            return (((x - minSource) * (maxTarget - minTarget)) / (maxSource - minSource)) + minTarget;
+            return GRT.Scale(x, ref minSource, ref maxSource, ref minTarget, ref maxTarget, constrain);
         }
+
 
         #endregion
     }
