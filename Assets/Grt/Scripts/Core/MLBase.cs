@@ -23,32 +23,32 @@ namespace GRT
         };
 
         #region Properties
-        bool trained;
-        bool useScaling;
-        bool converged;
-        DataType inputType;
-        DataType outputType;
-        BaseType baseType;
-        uint numInputDimensions;
-        uint numOutputDimensions;
-        uint numTrainingIterationsToConverge;
-        uint minNumEpochs;
-        uint maxNumEpochs;
-        uint batchSize;
-        uint validationSetSize;
-        uint numRestarts;
-        double learningRate;
-        double minChange;
-        double rmsTrainingError;
-        double rmsValidationError;
-        double totalSquaredTrainingError;
-        double validationSetAccuracy;
-        bool useValidationSet;
-        bool randomiseTrainingOrder;
-        VectorFloat validationSetPrecision;
-        VectorFloat validationSetRecall;
-        Random random;
-        Vector<TrainingResult> trainingResults;
+        protected bool trained;
+        protected bool useScaling;
+        protected bool converged;
+        protected DataType inputType;
+        protected DataType outputType;
+        protected BaseType baseType;
+        protected uint numInputDimensions;
+        protected uint numOutputDimensions;
+        protected uint numTrainingIterationsToConverge;
+        protected uint minNumEpochs;
+        protected uint maxNumEpochs;
+        protected uint batchSize;
+        protected uint validationSetSize;
+        protected uint numRestarts;
+        protected double learningRate;
+        protected double minChange;
+        protected double rmsTrainingError;
+        protected double rmsValidationError;
+        protected double totalSquaredTrainingError;
+        protected double validationSetAccuracy;
+        protected bool useValidationSet;
+        protected bool randomiseTrainingOrder;
+        protected VectorFloat validationSetPrecision;
+        protected VectorFloat validationSetRecall;
+        protected Random random;
+        protected Vector<TrainingResult> trainingResults;
 
         #endregion
 
