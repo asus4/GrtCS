@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace GRT
 {
+    [System.Serializable]
     public class Matrix<T>
     {
         #region Properties
@@ -11,7 +12,7 @@ namespace GRT
         protected uint size;      ///< Stores rows * cols
         protected uint capacity;  ///< The capacity of the Matrix, this will be the number of rows, not the actual memory size
 
-        T[] data;             ///< A pointer to the raw data
+        protected T[] data;             ///< A pointer to the raw data
         // T[] rowPtr;             ///< A pointer to each row in the data
 
         #endregion
@@ -493,7 +494,7 @@ namespace GRT
         /// Cleans up any dynamic memory and sets the number of rows and columns in the matrix to zero
         /// </summary>
         /// <returns>true if the data was cleared successfully</returns>
-        bool Clear()
+        public bool Clear()
         {
             if (data != null)
             {

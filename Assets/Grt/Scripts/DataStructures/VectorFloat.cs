@@ -114,7 +114,7 @@ namespace GRT
 
             for (int i = 0; i < N; i++)
             {
-                this[i] = GRTBase.Scale(this[i], ref minSource, ref maxSource, ref minTarget, ref maxTarget, constrain);
+                this[i] = GRTBase.Scale(this[i], minSource, maxSource, minTarget, maxTarget, constrain);
             }
             return true;
         }

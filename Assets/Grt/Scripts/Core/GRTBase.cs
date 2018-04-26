@@ -71,9 +71,9 @@ namespace GRT
         /// <param name="constrain">sets if the scaled value should be constrained to the target range</param>
         /// <returns>returns a new value that has been scaled based on the input parameters</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double Scale(double x, ref double minSource, ref double maxSource, ref double minTarget, ref double maxTarget, bool constrain = false)
+        public static double Scale(double x, double minSource, double maxSource, double minTarget, double maxTarget, bool constrain = false)
         {
-            return GRT.Scale(x, ref minSource, ref maxSource, ref minTarget, ref maxTarget, constrain);
+            return GRT.Scale(x, minSource, maxSource, minTarget, maxTarget, constrain);
         }
 
 
