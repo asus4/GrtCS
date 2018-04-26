@@ -280,7 +280,6 @@ namespace GRT
         }
 
 
-
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         ulong int64()
         {

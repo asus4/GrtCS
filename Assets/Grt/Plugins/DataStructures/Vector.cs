@@ -12,7 +12,10 @@ namespace GRT
         /// Constructor, sets the size of the vector
         /// </summary>
         /// <param name="size">the size of the vector</param>
-        public Vector(uint size = 0) : base((int)size) { }
+        public Vector(uint size = 0) : base((int)size)
+        {
+            Fill(default(T));
+        }
 
         /// <summary>
         /// Constructor, sets the size of the vector and sets all elements to value
@@ -24,6 +27,12 @@ namespace GRT
             Fill(value);
         }
 
+        public Vector(Vector<T> rhs)
+        {
+            var arr = new T[rhs.Count];
+            rhs.CopyTo(arr);
+            AddRange(arr);
+        }
 
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -37,21 +46,23 @@ namespace GRT
         /// <returns>returns true or false, indicating if the set was successful </returns>
         public bool Fill(T value)
         {
-            if (Count == 0)
+            if (Capacity == 0)
             {
                 return false;
             }
-            for (int i = 0; i < Count; ++i)
+            var array = new T[Capacity];
+            for (int i = 0; i < Capacity; ++i)
             {
-                this[i] = value;
+                array[i] = value;
             }
+            this.AddRange(array);
             return true;
         }
 
-        public static void Shuffle(IList<T> list)
+        public static void Shuffle(IList<T> list, ulong seed = 0)
         {
             int n = list.Count;
-            var rnd = new Random();
+            var rnd = new Random(seed);
             while (n > 1)
             {
                 int k = (rnd.GetRandomNumberInt(0, n) % n);
@@ -62,9 +73,9 @@ namespace GRT
             }
         }
 
-        public void Shuffle()
+        public void Shuffle(ulong seed = 0)
         {
-            Vector<T>.Shuffle(this);
+            Vector<T>.Shuffle(this, seed);
         }
 
         #endregion
