@@ -7,6 +7,12 @@ namespace GRT
     public class VectorFloat : Vector<double>
     {
 
+
+        public VectorFloat(uint size):base(size)
+        {
+
+        }
+
         /// <summary>
         /// Constructor, sets the size of the vector and sets all elements to value
         /// </summary>
