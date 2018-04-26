@@ -56,8 +56,18 @@ namespace GRT
             {
                 array[i] = value;
             }
-            this.AddRange(array);
+            Clear();
+            AddRange(array);
             return true;
+        }
+
+        /// Sets all the values in the Vector to the input value
+        /// </summary>
+        /// <param name="value">the value you want to set all the Vector values to</param>
+        /// <returns>true or false, indicating if the set was successful </returns>
+        public bool SetAll(T value)
+        {
+            return Fill(value);
         }
 
         public static void Shuffle(IList<T> list, ulong seed = 0)
