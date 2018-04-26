@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace GRT
 {
+    [System.Serializable]
     public class Vector<T> : List<T>
     {
         #region Methods

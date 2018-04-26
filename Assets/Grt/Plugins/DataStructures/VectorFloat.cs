@@ -1,16 +1,18 @@
 using System.IO;
 using System.Linq;
-using BinaryFormatter = System.Runtime.Serialization.Formatters.Binary.BinaryFormatter;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GRT
 {
+    [System.Serializable]
     public class VectorFloat : Vector<double>
     {
-
-
-        public VectorFloat(uint size):base(size)
+        public VectorFloat() : base(0)
         {
+        }
 
+        public VectorFloat(uint size) : base(size)
+        {
         }
 
         /// <summary>
@@ -20,6 +22,10 @@ namespace GRT
         /// <param name="value">the value that will be written to all elements in the vector</param>
         /// <returns></returns>
         public VectorFloat(uint size, double value) : base(size, value)
+        {
+        }
+
+        public VectorFloat(VectorFloat rhs) : base(rhs)
         {
         }
 
@@ -159,7 +165,5 @@ namespace GRT
                 return range;
             }
         }
-
-
     }
 }
