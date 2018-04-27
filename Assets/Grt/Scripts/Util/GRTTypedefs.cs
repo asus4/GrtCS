@@ -45,6 +45,9 @@ namespace GRT
             if (minSource == maxSource) return minTarget;
             return (((x - minSource) * (maxTarget - minTarget)) / (maxSource - minSource)) + minTarget;
         }
+
+
+        public const uint DEFAULT_NULL_CLASS_LABEL = 0;
     }
 
 }

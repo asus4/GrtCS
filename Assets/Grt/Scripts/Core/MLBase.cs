@@ -52,6 +52,8 @@ namespace GRT
 
         #endregion
 
+        #region Methods
+
         /// <summary>
         /// Default MLBase Constructor
         /// </summary>
@@ -71,6 +73,8 @@ namespace GRT
         {
             return true;
         }
+
+        #endregion // Methods
 
 
 
