@@ -36,6 +36,13 @@ namespace GRT
         }
 
 
+        public T this[uint i]
+        {
+            get { return this[(int)i]; }
+            set { this[(int)i] = value; }
+        }
+
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint GetSize() => (uint)Count;
 
