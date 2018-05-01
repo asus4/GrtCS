@@ -279,7 +279,6 @@ namespace GRT
             var vec = new Vector<int>(numRows);
             Assert.True(vec.SetAll(1000));
             Assert.True(mat.SetColVector(vec, 0));
-            UnityEngine.Debug.Log("c");
             for (int i = 0; i < numRows; i++)
             {
                 for (int j = 0; j < numCols; j++)

@@ -6,6 +6,14 @@ namespace GRT
     {
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static void Swap<T>(ref T a, ref T b)
+        {
+            T temp = a;
+            a = b;
+            b = temp;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double Sqr(double x) => x * x;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

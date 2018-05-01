@@ -5,6 +5,29 @@ namespace GRT
 {
     public static class TypedefsUnitTest
     {
+        // Tests the SWAP function
+        [Test]
+        public static void Swap()
+        {
+            double a = 0.0;
+            double b = 1.0;
+            GRT.Swap(ref a, ref b);
+            Assert.AreEqual(a, 1.0);
+            Assert.AreEqual(b, 0.0);
+
+            int c = 0;
+            int d = 1;
+            GRT.Swap(ref c, ref d);
+            Assert.AreEqual(c, 1);
+            Assert.AreEqual(d, 0);
+
+            uint e = 0;
+            uint f = 1;
+            GRT.Swap(ref e, ref f);
+            Assert.AreEqual(e, 1);
+            Assert.AreEqual(f, 0);
+        }
+
         // Tests the square function
         [Test]
         public static void Sqr()
