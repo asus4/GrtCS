@@ -20,14 +20,14 @@
             this.className = rhs.className;
         }
 
-        public static bool sortByClassLabelDescending(ClassTracker a, ClassTracker b)
+        public static int SortByClassLabelDescending(ClassTracker a, ClassTracker b)
         {
-            return a.classLabel > b.classLabel;
+            return (int)a.classLabel - (int)b.classLabel;
         }
 
-        public static bool sortByClassLabelAscending(ClassTracker a, ClassTracker b)
+        public static int SortByClassLabelAscending(ClassTracker a, ClassTracker b)
         {
-            return a.classLabel < b.classLabel;
+            return (int)b.classLabel - (int)a.classLabel;
         }
 
 

@@ -47,6 +47,13 @@ namespace GRT
         public double this[uint n]
         {
             get { return sample[(int)n]; }
+            set { sample[(int)n] = value; }
+        }
+
+        public double this[int n]
+        {
+            get { return sample[n]; }
+            set { sample[n] = value; }
         }
 
 
@@ -59,8 +66,20 @@ namespace GRT
         }
 
         public uint NumDimensions => numDimensions;
-        public uint ClassLabel => classLabel;
-        public VectorFloat Sample => sample;
+        public uint ClassLabel
+        {
+            get { return classLabel; }
+            set { classLabel = value; }
+        }
+        public VectorFloat Sample
+        {
+            get { return sample; }
+            set
+            {
+                sample = new VectorFloat(sample); // Clones
+                numDimensions = (uint)sample.Count;
+            }
+        }
 
         public bool Set(uint classLabel, VectorFloat sample)
         {
@@ -69,17 +88,7 @@ namespace GRT
             this.numDimensions = (uint)sample.Count;
             return true;
         }
-        public bool SetClassLabel(uint classLabel)
-        {
-            this.classLabel = classLabel;
-            return true;
-        }
-        public bool SetSample(VectorFloat sample)
-        {
-            this.sample = sample;
-            this.numDimensions = (uint)sample.Count;
-            return true;
-        }
+
         #endregion
 
     }

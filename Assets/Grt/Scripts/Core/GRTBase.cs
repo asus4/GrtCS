@@ -2,6 +2,7 @@
 
 namespace GRT
 {
+    [System.Serializable]
     public abstract class GRTBase
     {
         #region Properties
@@ -16,7 +17,7 @@ namespace GRT
         /// <param name="id">a string representing the class ID of the inheriting type</param>
         public GRTBase(string id = "")
         {
-
+            classId = id;
         }
 
         /// <summary>
