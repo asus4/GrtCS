@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using NUnit.Framework;
 
 namespace GRT
@@ -53,18 +54,23 @@ namespace GRT
             Assert.AreEqual(size, vec1.GetSize());
             for (int i = 0; i < size; i++) { vec1[i] = i * 1.0; }
 
+            const string fileName = "vec.csv";
+
             //Save the vector to a CSV file
-            Assert.True(vec1.Save("vec.csv"));
+            Assert.True(vec1.Save(fileName));
 
             //Load the data from the file into another vector
             VectorFloat vec2 = new VectorFloat();
-            Assert.True(vec2.Load("vec.csv"));
+            Assert.True(vec2.Load(fileName));
 
             //Vector 2 should now be the same size as vector 1
             Assert.AreEqual(vec1.GetSize(), vec2.GetSize());
 
             //Check to make sure the values match
             for (int i = 0; i < size; i++) { Assert.AreEqual(vec1[i], vec2[i]); }
+
+            // Cleanup file
+            File.Delete(fileName);
         }
 
         // Tests the scale function

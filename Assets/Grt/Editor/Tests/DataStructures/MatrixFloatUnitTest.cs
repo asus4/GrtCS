@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.IO;
+using NUnit.Framework;
 
 namespace GRT
 {
@@ -300,18 +301,23 @@ namespace GRT
                 }
             }
 
+            const string fileName = "matrix_float.dat";
+
             //Save the data
-            Assert.True(mat.Save("matrix_float.dat"));
+            Assert.True(mat.Save(fileName));
 
             Assert.True(mat.Clear());
 
             //Load the data
             {
                 var mat2 = new MatrixFloat();
-                Assert.True(mat2.Load("matrix_float.dat"));
+                Assert.True(mat2.Load(fileName));
                 Assert.AreEqual(numRows, mat2.GetNumRows());
                 Assert.AreEqual(numCols, mat2.GetNumCols());
             }
+
+            // Cleanup file
+            File.Delete(fileName);
         }
     }
 }
